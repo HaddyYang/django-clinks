@@ -6,6 +6,13 @@
 
 ## 安装方法
 - 该项目是Django的app。需要把该app整个文件夹复制到你的Django项目中
+- settings的INSTALLED_APPS 添加该应用
+```
+INSTALLED_APPS = [
+    '...',  # 其他应用
+    'clinks',
+]
+```
 - 执行```python manage.py migrate```
 - 可登录admin，可以看到clink应用
 
