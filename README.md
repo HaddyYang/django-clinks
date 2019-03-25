@@ -5,16 +5,16 @@
 其主要用途是SEO，实现提取文章的自定义链接、写入自定义链接和编辑自定义链接等功能。
 
 ## 安装方法
-- 该项目是Django的app。需要把该app整个文件夹复制到你的Django项目中
-- settings的INSTALLED_APPS 添加该应用
+1. 该项目是Django的app。需要把该app整个文件夹复制到你的Django项目中
+2. settings的INSTALLED_APPS 添加该应用
 ```
 INSTALLED_APPS = [
     '...',  # 其他应用
     'clinks',
 ]
 ```
-- 执行```python manage.py migrate```
-- 可登录admin，可以看到clink应用
+3. 执行```python manage.py migrate```
+4. 可登录admin，可以看到clink应用
 
 ## 使用示例
 ### 1、调用save()方法之前
