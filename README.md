@@ -3,6 +3,7 @@
 
 其主要用途是SEO，实现提取文章的自定义链接、写入自定义链接和编辑自定义链接等功能。
 
+
 ## 安装方法
 1. 该项目是Django的app。需要把该app整个文件夹复制到你的Django项目中
 2. settings的INSTALLED_APPS 添加该应用
@@ -15,6 +16,7 @@ INSTALLED_APPS = [
 3. 执行```python manage.py migrate```
 4. 可登录admin，可以看到clink应用
 
+
 ## 使用示例
 ### 1、调用save()方法之前
 ```
@@ -26,7 +28,7 @@ blog.save()
 ```
 
 ### 2、使用Signals方法
-在具体的应用中使用signals。不懂怎么使用，可以参考我的Django2.0教程，第44节。
+在具体的应用中使用signals。不懂怎么使用，可以参考我的[Django2.0教程第44节](https://www.bilibili.com/video/av42276162)。
 假设该对象的content字段需要处理，如下示例代码:
 ```
 from django.db.models.signals import pre_save
@@ -49,6 +51,7 @@ cu = ClinksUtils()
 cu.extract(blog.content)  # 提取自定义链接
 content = cu.write_into(content)  # 写入自定义链接
 ```
+
 
 ## 更新说明
 - v0.1版
