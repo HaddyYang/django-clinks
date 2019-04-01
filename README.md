@@ -37,12 +37,12 @@ blog.save()
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from clinks.utils import extract_custom_links, write_into_custom_links  # 导入自定义链接处理的两个方法
-from blog.models import Blog  # 具体要处理的模型对象
+from blog.models import Blog  # 具体要处理的模型对象，要换成自己的模型
 
 @receiver(pre_save, sender=Blog)
 def custom_links_signal(sender, intance, **kwargs):
     if intance.created == True:  # 判断是否是新建
-        extract_custom_links(intance.content)
+        extract_custom_links(intance.content)  # content也是用来举例说明，要换成自己的字段
         intance.content = write_into_custom_links(intance.content)
 ```
 
