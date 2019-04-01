@@ -36,7 +36,7 @@ blog.save()
 ```
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
-from clinks.utils import extrace_custom_links, write_into_custom_links  # 导入自定义链接处理的两个方法
+from clinks.utils import extract_custom_links, write_into_custom_links  # 导入自定义链接处理的两个方法
 from blog.models import Blog  # 具体要处理的模型对象
 
 @receiver(pre_save, sender=Blog)

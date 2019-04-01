@@ -12,7 +12,7 @@ def extract_custom_links(content):
     add_count = 0
     regexp = r'<a.+?href=[\'"](.+?)[\'"].*?>(.+?)</a>'
     # 匹配内容的a标签
-    for herf, text in re.findall(regexp, content):
+    for href, text in re.findall(regexp, content):
         # 去掉text的html标签，保留文字
         text = strip_tags(text)
         if text != '':
