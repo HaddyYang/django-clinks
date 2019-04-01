@@ -40,11 +40,11 @@ from clinks.utils import extract_custom_links, write_into_custom_links  # 导入
 from blog.models import Blog  # 具体要处理的模型对象，要换成自己的模型
 
 @receiver(pre_save, sender=Blog)
-def custom_links_signal(sender, intance, **kwargs):
+def custom_links_signal(sender, instance, **kwargs):
     # 判断是否是新建
-    if kwargs['created'] == True:
-        extract_custom_links(intance.content)  # content也是用来举例说明，要换成自己的字段
-        intance.content = write_into_custom_links(intance.content)
+    if not instance.pk:
+        extract_custom_links(instance.content)  # content也是用来举例说明，要换成自己的字段
+        instance.content = write_into_custom_links(instance.content)
 ```
 
 如果觉得上面两个方法名称过长，也可以引用clinks.utils中的ClinksUtils类

@@ -30,7 +30,7 @@ def write_into_custom_links(content):
     # 2、考虑用xpath
     for clink in CustomLink.objects.all():
         a_tag = '<a href="{link}">{text}</a>'.format(link=clink.link, text=clink.text)
-        content = content.replay(clink.text, a_tag)
+        content = content.replace(clink.text, a_tag)
     return content
 
 
