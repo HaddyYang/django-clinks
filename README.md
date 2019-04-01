@@ -41,7 +41,8 @@ from blog.models import Blog  # 具体要处理的模型对象，要换成自己
 
 @receiver(pre_save, sender=Blog)
 def custom_links_signal(sender, intance, **kwargs):
-    if intance.created == True:  # 判断是否是新建
+    # 判断是否是新建
+    if kwargs['created'] == True:
         extract_custom_links(intance.content)  # content也是用来举例说明，要换成自己的字段
         intance.content = write_into_custom_links(intance.content)
 ```
