@@ -17,7 +17,7 @@ def extract_custom_links(content):
         text = strip_tags(text)
         if text != '':
             # 判断a标签是否在数据库中
-            if not CustomLink.objects.exsits(text=text):
+            if not CustomLink.objects.exists(text=text):
                 # 插入数据库
                 CustomLink.add(link=href, text=text)
                 add_count += 1
